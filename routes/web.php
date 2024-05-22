@@ -11,13 +11,17 @@ Route::get('/dashboard', function () {
     return view('pages.coba');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/coba', function () {
-    return view('pages.coba');
+Route::get('/pengguna', function () {
+    return view('pages.pengguna');
 })->middleware(['auth', 'verified']);
 
-Route::get('/dashboard', function () {
-    return view('pages.coba');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/led', function () {
+    return view('pages.led');
+})->middleware(['auth', 'verified']);
+
+Route::get('/sensor', function () {
+    return view('pages.sensor');
+})->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

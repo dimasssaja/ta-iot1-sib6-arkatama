@@ -1,8 +1,8 @@
 <div class="iq-sidebar">
     <div class="iq-sidebar-logo d-flex justify-content-between">
        <a href="index.html">
-       <img src="images/logo.png" class="img-fluid" alt="">
-       <span>Sofbox</span>
+       <img src="images/home.png" class="img-fluid" alt="">
+       <span>IoT House</span>
        </a>
        <div class="iq-menu-bt align-self-center">
           <div class="wrapper-menu">
@@ -17,31 +17,30 @@
           <ul id="iq-sidebar-toggle" class="iq-menu">
              <li class="iq-menu-title"><i class="ri-separator"></i><span>Main</span></li>
              <li class="active">
-                <a href="#dashboard" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-home-4-line"></i><span>Dashboard</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li class="active"><a href="index.html">Dashboard 1</a></li>
+                <a href="dashboard" class="iq-waves-effect"><i class="ri-home-4-line"></i><span>Dashboard</span></a></li>
+                {{-- <ul id="dashboard" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                   <li class="active"><a href="dashboard">Dashboard 1</a></li>
                    <li><a href="dashboard1.html">Dashboard 2</a></li>
-                </ul>
+                </ul> --}}
              </li>
              <li>
-                <a href="#mailbox" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-mail-line"></i><span>Email</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li><a href="app/index.html">Inbox</a></li>
-                   <li><a href="app/email-compose.html">Email Compose</a></li>
-                </ul>
-             </li>
-             <li><a href="todo.html" class="iq-waves-effect"><i class="ri-chat-check-line"></i><span>Todo</span></a></li>
+                <a href="sensor" class="iq-waves-effect"><i class="ri-mail-line"></i><span>Sensor</span></a></li>
+                {{-- <ul id="mailbox" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                   <li><a href="sensor">sensor</a></li>
+                   {{-- <li><a href="app/email-compose.html">Email Compose</a></li> --}}
+                {{-- </ul> --}}
+             {{-- </li> --}}
+             {{-- <li><a href="todo.html" class="iq-waves-effect"><i class="ri-chat-check-line"></i><span>Todo</span></a></li> --}}
              <li>
-                <a href="#user-info" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-user-line"></i><span>User</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
-                <ul id="user-info" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   <li><a href="profile.html">User Profile</a></li>
-                   <li><a href="profile-edit.html">User Edit</a></li>
+                <a href="led" class="iq-waves-effect"><i class="ri-user-line"></i><span>LED Control</span></a><li>
+                {{-- <ul id="user-info" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                   {{-- <li><a href="led">User Profile</a></li> --}}
+                   {{-- <li><a href="profile-edit.html">User Edit</a></li>
                    <li><a href="add-user.html">User Add</a></li>
-                   <li><a href="user-list.html">User List</a></li>
-                </ul>
-             </li>
-             <li><a href="calendar.html" class="iq-waves-effect"><i class="ri-calendar-2-line"></i><span>Calendar</span></a></li>
-             <li><a href="chat.html" class="iq-waves-effect"><i class="ri-message-line"></i><span>Chat</span></a></li>
+                   <li><a href="user-list.html">User List</a></li> --}}
+                {{-- </ul> --}}
+             {{-- </li> --}}
+             <li><a href="pengguna" class="iq-waves-effect"><i class="ri-message-line"></i><span>Pengguna</span></a></li>
              <li class="iq-menu-title"><i class="ri-separator"></i><span>Components</span></li>
              <li>
                 <a href="#ui-elements" class="iq-waves-effect collapsed"  data-toggle="collapse" aria-expanded="false"><i class="ri-pencil-ruler-line"></i><span>UI Elements</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
