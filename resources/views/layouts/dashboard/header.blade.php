@@ -4,7 +4,7 @@
           <div class="top-logo">
              <a href="index.html" class="logo">
              <img src="images/logo.png" class="img-fluid" alt="">
-             <span>Softbox</span>
+             <span>IoT Hous</span>
              </a>
           </div>
        </div>

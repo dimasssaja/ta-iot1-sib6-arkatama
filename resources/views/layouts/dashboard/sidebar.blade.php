@@ -1,6 +1,6 @@
 <div class="iq-sidebar">
     <div class="iq-sidebar-logo d-flex justify-content-between">
-       <a href="index.html">
+       <a href="dashboard">
        <img src="images/home.png" class="img-fluid" alt="">
        <span>IoT House</span>
        </a>
