@@ -44,6 +44,36 @@ class SensorController extends Controller
         return response()->json($sensorData, 201);
     }
 
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'temperature' => 'required|numeric',
+            'humidity' => 'required|numeric',
+            'gas_level' => 'required|numeric',
+            'rain_detected' => 'required|boolean',
+            'device_id' => 'required|integer',
+        ]);
+
+        $sensorData = Sensor::find($id);
+        if ($sensorData) {
+            $sensorData->update($validatedData);
+            return response()->json($sensorData);
+        } else {
+            return response()->json(['message' => 'Data not found'], 404);
+        }
+    }
+
+    public function destroy($id)
+    {
+        $sensorData = Sensor::find($id);
+        if ($sensorData) {
+            $sensorData->delete();
+            return response()->json(['message' => 'Data deleted successfully']);
+        } else {
+            return response()->json(['message' => 'Data not found'], 404);
+        }
+    }
+
     // public function getData(){
     //     $data=Sensor::all();
     //     return response()->json([
