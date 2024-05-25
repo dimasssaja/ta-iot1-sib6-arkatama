@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('devices_', function (Blueprint $table) {
+        Schema::create('leds', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_led');
+            $table->boolean('status')->default(false);
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('devices_');
+        Schema::dropIfExists('leds');
     }
 };

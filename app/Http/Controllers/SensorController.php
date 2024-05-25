@@ -22,7 +22,7 @@ class SensorController extends Controller
         if ($data) {
             return response()->json($data);
         } else {
-            return response()->json(['message' => 'Data not found'], 404);
+            return response()->json(['message' => 'Data tidak ditemukan'], 404);
         }
     }
 
@@ -59,7 +59,7 @@ class SensorController extends Controller
             $sensorData->update($validatedData);
             return response()->json($sensorData);
         } else {
-            return response()->json(['message' => 'Data not found'], 404);
+            return response()->json(['message' => 'Data tidak ditemukan'], 404);
         }
     }
 
@@ -68,9 +68,9 @@ class SensorController extends Controller
         $sensorData = Sensor::find($id);
         if ($sensorData) {
             $sensorData->delete();
-            return response()->json(['message' => 'Data deleted successfully']);
+            return response()->json(['message' => 'Data berhasil dihapus']);
         } else {
-            return response()->json(['message' => 'Data not found'], 404);
+            return response()->json(['message' => 'Data tidak ditemukan'], 404);
         }
     }
 

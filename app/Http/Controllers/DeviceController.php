@@ -21,7 +21,7 @@ class DeviceController extends Controller
         if ($data) {
             return response()->json($data);
         } else {
-            return response()->json(['message' => 'Data not found'], 404);
+            return response()->json(['message' => 'Data tidak ditemukan'], 404);
         }
     }
 
@@ -52,7 +52,7 @@ class DeviceController extends Controller
 
             return response()->json($device);
         } else {
-            return response()->json(['message' => 'Device not found'], 404);
+            return response()->json(['message' => 'Device tidak ditemukan'], 404);
         }
     }
 
@@ -61,9 +61,9 @@ class DeviceController extends Controller
         $device = devices::find($id);
         if ($device) {
             $device->delete();
-            return response()->json(['message' => 'Device deleted successfully']);
+            return response()->json(['message' => 'data device berhasil dihapus']);
         } else {
-            return response()->json(['message' => 'Device not found'], 404);
+            return response()->json(['message' => 'data device tidak ditemukan'], 404);
         }
     }
     // public function index()
