@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\LEDController;
+use App\Http\Controllers\NotificationsController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -30,3 +31,10 @@ Route::get('/leds/{id}', [LEDController::class, 'show']);
 Route::post('/leds', [LEDController::class, 'store']);
 Route::put('/leds/{id}', [LEDController::class, 'update']);
 Route::delete('/leds/{id}', [LEDController::class, 'destroy']);
+
+//route notifications
+Route::get('/notifications', [NotificationsController::class, 'index']);
+Route::get('/notifications/{id}', [NotificationsController::class, 'show']);
+Route::post('/notifications', [NotificationsController::class, 'store']);
+Route::put('/notifications/{id}', [NotificationsController::class, 'update']);
+Route::delete('/notifications/{id}', [NotificationsController::class, 'destroy']);

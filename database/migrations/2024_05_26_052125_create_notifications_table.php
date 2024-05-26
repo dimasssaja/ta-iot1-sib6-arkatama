@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sensors', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->float('temperature');
-            $table->float('humidity');
-            $table->float('gas_level');
-            $table->boolean('rain_detected');
-            $table->unsignedBigInteger('device_id');
+            $table->string('message');
+            $table->boolean('sent')->default(false);
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sensors');
+        Schema::dropIfExists('notifications');
     }
 };

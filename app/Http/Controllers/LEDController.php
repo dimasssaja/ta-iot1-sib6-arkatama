@@ -44,6 +44,7 @@ class LEDController extends Controller
 
         $data = $request->validate([
             'status' => 'required|boolean',
+            'nama_led' => 'required|string|max:255',
         ]);
 
 

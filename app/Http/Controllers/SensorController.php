@@ -34,7 +34,7 @@ class SensorController extends Controller
             'humidity' => 'required|numeric',
             'gas_level' => 'required|numeric',
             'rain_detected' => 'required|boolean',
-            'device_id' => 'required|integer',
+            'device_id' => 'required|exists:devices,id',
         ]);
 
         // Buat data sensor baru
@@ -51,7 +51,7 @@ class SensorController extends Controller
             'humidity' => 'required|numeric',
             'gas_level' => 'required|numeric',
             'rain_detected' => 'required|boolean',
-            'device_id' => 'required|integer',
+            'device_id' => 'required|exists:devices,id',
         ]);
 
         $sensorData = Sensor::find($id);
