@@ -23,4 +23,14 @@ class UserController extends Controller
 
         return view('pages.user.index', $data);
     }
+
+    public function show($id)
+    {
+        $data = User::find($id);
+        if ($data) {
+            return response()->json($data);
+        } else {
+            return response()->json(['message' => 'Data tidak ditemukan'], 404);
+        }
+    }
 }

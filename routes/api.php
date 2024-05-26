@@ -5,11 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\LEDController;
-use App\Http\Controllers\NotificationsController;
+use App\Http\Controllers\UserController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
+Route::get('/user/{id}', [UserController::class, 'show']);
 
 //route sensor
 Route::get('/sensor', [SensorController::class, 'index']);
