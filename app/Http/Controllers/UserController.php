@@ -33,4 +33,15 @@ class UserController extends Controller
             return response()->json(['message' => 'Data tidak ditemukan'], 404);
         }
     }
+
+    public function destroy($id)
+    {
+        $data = User::find($id);
+        if ($data) {
+            $data->delete();
+            return response()->json(['message' => 'Data berhasil dihapus']);
+        } else {
+            return response()->json(['message' => 'Data tidak ditemukan'], 404);
+        }
+    }
 }

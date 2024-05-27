@@ -6,6 +6,7 @@ use App\Http\Controllers\SensorController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\LEDController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\NotificationsController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();

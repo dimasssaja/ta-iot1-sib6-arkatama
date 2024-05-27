@@ -3,8 +3,8 @@
         <div class="iq-sidebar-logo">
             <div class="top-logo">
                 <a href="index.html" class="logo">
-                    <img src="images/logo.png" class="img-fluid" alt="">
-                    <span>IoT Hous</span>
+                    <img src="images/home.png" class="img-fluid" alt="">
+                    <span>IoT House</span>
                 </a>
             </div>
         </div>

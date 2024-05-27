@@ -18,7 +18,7 @@
 	<meta property="og:type" content="article" />
 
     <!-- Website Title -->
-    <title>Evolo - StartUp HTML Landing Page Template</title>
+    <title>IoT House - Arkatama </title>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700,700i&amp;subset=latin-ext" rel="stylesheet">
@@ -50,7 +50,7 @@
         <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Evolo</a> -->
 
         <!-- Image Logo -->
-        <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative"></a>
+        <a class="navbar-brand logo-image" href="index.html"><img src="images/logo.svg" alt="alternative">Evolo</a>
 
         <!-- Mobile Menu Toggle Button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +65,7 @@
                     <a class="nav-link page-scroll" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="#services">Contact</a>
+                    <a class="nav-link page-scroll" href="#services">Documentation</a>
                     {{-- langsung link github bisa --}}
                 </li>
                 <li class="nav-item">
@@ -90,15 +90,15 @@
             </ul>
             <span class="nav-item social-icons">
                 <span class="fa-stack">
-                    <a href="#your-link">
+                    <a href="https://www.linkedin.com/in/dimas-abi-mesti-0158352a1/">
                         <i class="fas fa-circle fa-stack-2x facebook"></i>
-                        <i class="fab fa-facebook-f fa-stack-1x"></i>
+                        <i class="fab fa-linkedin-in fa-stack-1x"></i>
                     </a>
                 </span>
                 <span class="fa-stack">
-                    <a href="#your-link">
+                    <a href="https://github.com/dimasssaja">
                         <i class="fas fa-circle fa-stack-2x twitter"></i>
-                        <i class="fab fa-twitter fa-stack-1x"></i>
+                        <i class="fab fa-github fa-stack-1x"></i>
                     </a>
                 </span>
             </span>
@@ -114,14 +114,14 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="text-container">
-                            <h1><span class="turquoise">StartUp Landing</span> Page Template Free</h1>
-                            <p class="p-large">Use Evolo free landing page template to promote your business startup and generate leads for the offered services</p>
-                            <a class="btn-solid-lg page-scroll" href="{{route('login')}}">Login</a>
+                            <h1><span class="turquoise">IoT House - Home Controlling</span> </h1>
+                            <p class="p-large">Selamat datang di sistem pemantauan lingkungan berbasis IoT kami, solusi untuk mengawasi kondisi lingkungan rumah dengan sebuah website</p>
+                            <a class="btn-solid-lg page-scroll" href="{{route('login')}}">Control Your Home</a>
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->
                     <div class="col-lg-6">
                         <div class="image-container">
-                            <img class="img-fluid" src="images/header-teamwork.svg" alt="alternative">
+                            <img class="img-fluid" src="images/h12.png" alt="alternative">
                         </div> <!-- end of image-container -->
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
@@ -136,7 +136,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h5>Trusted By</h5>
+                    <h5>Built with</h5>
 
                     <!-- Image Slider -->
                     <div class="slider-container">
@@ -144,32 +144,32 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="image-container">
-                                        <img class="img-responsive" src="images/customer-logo-1.png" alt="alternative">
+                                        <img class="img-responsive" src="images/laravel11.png" alt="alternative">
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="image-container">
-                                        <img class="img-responsive" src="images/customer-logo-2.png" alt="alternative">
+                                        <img class="img-responsive" src="images/javascript.png" alt="alternative">
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="image-container">
-                                        <img class="img-responsive" src="images/customer-logo-3.png" alt="alternative">
+                                        <img class="img-responsive" src="images/php.png" alt="alternative">
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="image-container">
-                                        <img class="img-responsive" src="images/customer-logo-4.png" alt="alternative">
+                                        <img class="img-responsive" src="images/laravel1.png" alt="alternative">
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="image-container">
-                                        <img class="img-responsive" src="images/customer-logo-5.png" alt="alternative">
+                                        <img class="img-responsive" src="images/javascript.png" alt="alternative">
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="image-container">
-                                        <img class="img-responsive" src="images/customer-logo-6.png" alt="alternative">
+                                        <img class="img-responsive" src="images/php.png" alt="alternative">
                                     </div>
                                 </div>
                             </div> <!-- end of swiper-wrapper -->
