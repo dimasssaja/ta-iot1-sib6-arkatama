@@ -8,6 +8,7 @@
                 <div class="sign-in-from">
                     <h1 class="mb-0">Sign Up</h1>
                     <p>Enter your email address and password to access admin panel.</p>
+                    @include('layouts.dashboard.alerts.danger-alert')
                     <form class="mt-4" action="{{route('register')}}" method="POST">
                         @csrf
                         <div class="form-group">

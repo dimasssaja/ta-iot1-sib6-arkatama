@@ -12,7 +12,16 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/user/{id}', [UserController::class, 'show']);
+// Route::get('/users', [UserController::class, 'index']);
+// Route::get('/users/{id}', [UserController::class, 'show']);
+// Route::post('/users', [UserController::class, 'store']);
+// Route::put('/users', [UserController::class, 'update']);
+// Route::get('/users', [UserController::class, 'destroy']);
+
+// Controller yang dipanggil itu userController yang berada di folder controllers/usercontroller
+// bukan yang ada di folder contollers/api/userconroller
+Route::resource('users', UserController::class)
+    ->except(['create','edit']);
 
 //route sensor
 Route::get('/sensor', [SensorController::class, 'index']);
