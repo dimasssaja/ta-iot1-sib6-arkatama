@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-sm-6 text-center">
                     <div class="sign-in-detail text-white"
-                        style="background: url(images/login/2.jpg) no-repeat 0 0; background-size: cover;">
+                        style="background: url(images/bg-03.jpg) no-repeat 0 0; background-size: cover;">
                         <a class="sign-in-logo mb-5" href="#"><img src="images/white-logo.png" class="img-fluid"
                                 alt="logo"></a>
                         <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true"

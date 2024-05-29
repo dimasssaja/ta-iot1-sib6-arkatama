@@ -59,6 +59,15 @@
              ">
              <a href="{{route('users.index')}}" class="iq-waves-effect"><i class="ri-message-line"></i><span>Pengguna</span></a></li>
 
+             <li class="
+             @if (request()->url() == route('logout'))
+                 active
+            @endif
+             ">
+                <a href="{{route('logout')}}" class="iq-waves-effect"><i class="far fa-rotate-left"></i><span>Back to Home</span></a></li>
+             </li>
+
+
        </nav>
        <div class="p-3"></div>
     </div>

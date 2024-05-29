@@ -6,20 +6,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensor Data Charts</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Humidity and Temperature Charts</title>
     <link rel="stylesheet" href="css/char.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        .chart-box {
+            width: 45%;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Line Chart for Temperature -->
+    <div class="chart-container">
+        <!-- Line Chart for Temperature -->
+        <div class="chart-box">
+            <h2>Temperature</h2>
+            <canvas id="temperatureChart"></canvas>
+        </div>
 
-    <canvas id="temperatureChart" width="400" height="200"></canvas>
-
-    <!-- Line Chart for Humidity -->
-
-    <canvas id="humidityChart" width="400" height="200"></canvas>
-
+        <!-- Line Chart for Humidity -->
+        <div class="chart-box">
+            <h2>Humidity</h2>
+            <canvas id="humidityChart"></canvas>
+        </div>
+    </div>
 
     <div class="header">
     </div>
@@ -30,31 +44,33 @@
                 <div class="gauge">
                     <div class="gauge__body">
                       <div class="gauge__fill"></div>
-                      <div class="gauge__cover">50</div>
+                      <div class="gauge__cover"></div>
                     </div>
                 </div>
                 <div class="indicator">
+                    <h4>bahaya</h4>
                 </div>
             </div>
-            <div class="box2">
+            <div class="box3">
                 <h2>Rain Sensor</h2>
                 <div class="gauge">
                     <div class="gauge__body">
-                      <div class="gauge__cover">0</div>
+                      <div class="gauge__cover">0 </div>
                     </div>
                 </div>
                 <div class="indicator">
+                    <i class="fa-solid fa-cloud-rain">tidak terdeteksi</i>
                 </div>
             </div>
         </div>
 
+    <script src="js/smart.js"></script>
+
     <script>
         // Data for the charts
-        const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+        const labels = ['1', '2', '3', '4', '5', '6', '7'];
         const temperatureData = [0, 10, 5, 2, 20, 30, 45];
         const humidityData = [65, 59, 80, 81, 56, 55, 40];
-        const gasData = [300];
-        const rainData = [150];
 
         // Line Chart for Temperature
         const ctxTemperature = document.getElementById('temperatureChart').getContext('2d');
@@ -70,7 +86,12 @@
                 }]
             },
             options: {
-                responsive: true
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
             }
         });
 
@@ -88,7 +109,12 @@
                 }]
             },
             options: {
-                responsive: true
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
             }
         });
     </script>
