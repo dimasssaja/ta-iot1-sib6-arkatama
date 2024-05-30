@@ -11,6 +11,18 @@ body{
     justify-content: center;
 }
 
+.btn-sensor{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    margin-right: 550px;
+    background-color: gainsboro;
+    border: 10px solid gainsboro;
+    border-radius: 20px;
+}
+
 .header h1{
   display: flex;
   align-items: center;

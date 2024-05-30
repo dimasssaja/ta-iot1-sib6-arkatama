@@ -32,7 +32,7 @@
     <link href="css/styles.css" rel="stylesheet">
 
     <!-- Favicon  -->
-    <link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="images/home.png">
 </head>
 
 <body data-spy="scroll" data-target=".fixed-top">

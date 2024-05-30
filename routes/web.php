@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LEDController;
 
 Route::get('/', function () {
     return view('layouts.landing');
@@ -23,7 +24,12 @@ Route::get('/pengguna', function () {
 })->middleware(['auth', 'verified']);
 
 Route::get('/led', function () {
-    return view('pages.led');
+    $data['title'] = 'Dashboard';
+    $data['breadcrumbs'][]=[
+        'title' => 'Dashboard',
+        'url'   => route('led')
+    ];
+    return view('pages.led',$data);
 })->middleware(['auth', 'verified'])->name('led');;
 
 Route::get('/sensor', function () {
@@ -37,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('users',[UserController::class,'index'])->name('users.index');
+    Route::get('leds',[LEDController::class,'index'])->name('leds.led');
 });
 
 

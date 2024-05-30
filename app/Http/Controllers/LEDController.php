@@ -10,8 +10,20 @@ class LEDController extends Controller
 {
     public function index()
     {
-        $data = leds::all();
-        return response()->json($data);
+        $data['title'] = 'Pengguna';
+        $data['breadcrumbs'][]=[
+            'title' => 'Dashboard',
+            'url'   => route('led')
+        ];
+        $data['breadcrumbs'][]=[
+            'title' => 'LED Controller',
+            'url'   => 'leds.led'
+        ];
+
+        $users = leds::orderBy('id')->get();
+        $data['leds'] = $users;
+
+        return view('pages.led', $data);
     }
 
     public function show($id)

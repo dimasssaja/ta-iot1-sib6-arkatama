@@ -118,6 +118,8 @@
             }
         });
     </script>
+    <a href="sensor" class="btn-sensor">Lihat Data Sensor</a>
+    {{-- {{ route('sensors.index') }} --}}
 </body>
 </html>
 @endsection

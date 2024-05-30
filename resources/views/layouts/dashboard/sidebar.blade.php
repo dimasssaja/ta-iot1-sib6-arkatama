@@ -40,11 +40,11 @@
              {{-- </li> --}}
              {{-- <li><a href="todo.html" class="iq-waves-effect"><i class="ri-chat-check-line"></i><span>Todo</span></a></li> --}}
              <li class="
-             @if (request()->url() == route('led'))
+             @if (request()->url() == route('leds.led'))
                  active
             @endif
              ">
-                <a href="led" class="iq-waves-effect"><i class="ri-user-line"></i><span>LED Control</span></a><li>
+                <a href="{{route('leds.led')}}" class="iq-waves-effect"><i class="ri-user-line"></i><span>LED Control</span></a><li>
                 {{-- <ul id="user-info" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                    {{-- <li><a href="led">User Profile</a></li> --}}
                    {{-- <li><a href="profile-edit.html">User Edit</a></li>
