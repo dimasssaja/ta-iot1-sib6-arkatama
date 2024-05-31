@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LEDController;
+use App\Http\Controllers\SensorController;
 
 Route::get('/', function () {
     return view('layouts.landing');
@@ -23,6 +24,15 @@ Route::get('/pengguna', function () {
     return view('pages.pengguna');
 })->middleware(['auth', 'verified']);
 
+Route::get('/datalog', function () {
+    $data['title'] = 'Dashboard';
+    $data['breadcrumbs'][]=[
+        'title' => 'Dashboard',
+        'url'   => route('datalog')
+    ];
+    return view('pages.datalog',$data);
+})->middleware(['auth', 'verified']);
+
 Route::get('/led', function () {
     $data['title'] = 'Dashboard';
     $data['breadcrumbs'][]=[
@@ -33,7 +43,12 @@ Route::get('/led', function () {
 })->middleware(['auth', 'verified'])->name('led');;
 
 Route::get('/sensor', function () {
-    return view('pages.sensor');
+    $data['title'] = 'Dashboard';
+    $data['breadcrumbs'][]=[
+        'title' => 'Dashboard / Sensor',
+        'url'   => route('sensor')
+    ];
+    return view('pages.sensor',$data);
 })->middleware(['auth', 'verified'])->name('sensor');;
 
 //route yg hanya diakses jika sudah login
@@ -44,6 +59,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('users',[UserController::class,'index'])->name('users.index');
     Route::get('leds',[LEDController::class,'index'])->name('leds.led');
+    Route::get('sensors',[SensorController::class,'index'])->name('sensors.sensor');
 });
 
 

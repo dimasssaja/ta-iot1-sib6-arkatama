@@ -17,7 +17,40 @@ body{
     align-items: center;
     justify-content: center;
     margin: 30px auto;
-    margin-right: 550px;
+    margin-right: 575px;
+    background-color: gainsboro;
+    border: 10px solid gainsboro;
+    border-radius: 20px;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: space-around;
+}
+.chart-box {
+    width: 45%;
+}
+.btn-devices{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    margin-left: 680px;
+    margin-top: 80px;
+    background-color: gainsboro;
+    border: 10px solid gainsboro;
+    border-radius: 20px;
+}
+
+.btn-notifikasi{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    margin-left: 680px;
+    margin-top: 130px;
     background-color: gainsboro;
     border: 10px solid gainsboro;
     border-radius: 20px;
@@ -125,6 +158,70 @@ body{
   flex-direction: column;
 }
 
+.btn1{
+    font-size: 14px; font-family: 'Questrial', sans-serif;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    margin-left: 1205px;
+    margin-top: 190px;
+    background-color: gainsboro;
+    border: 10px solid gainsboro;
+    border-radius: 20px;
+}
+/*
+.btn2{
+    font-size: 14px; font-family: 'Questrial', sans-serif;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    margin-left: 995px;
+    margin-top: 510px;
+    background-color: gainsboro;
+    border: 10px solid gainsboro;
+    border-radius: 20px;
+}
+
+.btn3{
+    font-size: 14px; font-family: 'Questrial', sans-serif;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    margin-left: 995px;
+    margin-top: 560px;
+    background-color: gainsboro;
+    border: 10px solid gainsboro;
+    border-radius: 20px;
+} */
+
+.box2-sensor{
+    width: 300px;
+    height: 250px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px gray;
+    padding: 0px 20px;
+    position: absolute;
+    margin-left: 310px;
+    margin-right: 100px;
+    margin-top: 70px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.box2-sensor h2{
+    margin: 15px 0px;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 .box2 h2{
   margin: 15px 0px;
   font-size: 28px;
@@ -146,15 +243,61 @@ body{
     margin-top: 20px;
     justify-content: center;
     flex-direction: column;
-  }
+}
 
-  .box3 h2{
+.box3-sensor{
+    width: 300px;
+    height: 250px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px gray;
+    padding: 0px 20px;
+    position: absolute;
+    margin-left: 870px;
+    margin-right: 100px;
+    margin-top: 70px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.box3 h2{
     margin: 20px 0px;
     font-size: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
+
+.box3-sensor h2{
+    margin: 20px 0px;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box4{
+    width: 300px;
+    height: 250px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px gray;
+    padding: 0px 20px;
+    position: absolute;
+    margin-left: 680px;
+    margin-right: 120px;
+    margin-top: 460px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.box4 h2{
+    margin: 20px 0px;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .gauge {
   width: 100%;
@@ -241,7 +384,7 @@ body{
 
 .box{
     width: 190px;
-    height: 205px;
+    height: 225px;
     background-color: white;
     border-radius: 20px;
     box-shadow: 5px 5px 10px gray;
@@ -281,7 +424,7 @@ body{
     display: inline-block;
     width: 60px;
     height: 34px;
-    margin: 35px 30px 0px 65px;
+    margin: 15px 30px 0px 65px;
   }
 
   /* Hide default HTML checkbox */

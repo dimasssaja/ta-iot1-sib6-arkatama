@@ -11,8 +11,16 @@ class SensorController extends Controller
     public function index()
     {
         // Mengambil semua data sensor
-        $data = Sensor::all();
-        return response()->json($data);
+        $data = Sensor::orderBy('created_at','desc')->get();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'List Data Temperature',
+            'data' => $data
+        // $data = Sensor::all();
+        // return response()->json($data);
+        ]);
+        return view('sensors.sensor', compact('sensors'));
     }
 
     public function show($id)

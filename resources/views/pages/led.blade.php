@@ -101,6 +101,8 @@
 
                 <div class="box">
                     <p>LED R</p>
+                    <p>User:</p>
+                    <p>Status:</p>
                     <img src="images/light.svg" alt="light" id="lightimg1">
                     <i class="fas fa-lightbulb-on light" id="lighton1"
                         style="width: 25px; height: 25px; color: yellow"></i>
@@ -112,6 +114,8 @@
 
                 <div class="box">
                     <p>LED G</p>
+                    <p>User:</p>
+                    <p>Status:</p>
                     <img src="images/light.svg" alt="light" id="lightimg2">
                     <i class="fas fa-lightbulb-on light" id="lighton2"
                         style="width: 25px; height: 25px; color: yellow"></i>
@@ -123,6 +127,8 @@
 
                 <div class="box">
                     <p>LED B</p>
+                    <p>User:</p>
+                    <p>Status:</p>
                     <img src="images/light.svg" alt="light" id="lightimg3">
                     <i class="fas fa-lightbulb-on light" id="lighton3"
                         style="width: 25px; height: 25px; color: yellow"></i>
