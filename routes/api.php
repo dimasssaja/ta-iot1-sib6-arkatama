@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\LEDController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\NotificationsController;
 
 Route::get('/user', function (Request $request) {
@@ -20,8 +20,12 @@ Route::get('/user', function (Request $request) {
 
 // Controller yang dipanggil itu userController yang berada di folder controllers/usercontroller
 // bukan yang ada di folder contollers/api/userconroller
-Route::resource('users', UserController::class)
-    ->except(['create','edit']);
+
+Route::group(['as'=>'api.'], function(){
+    Route::resource('users', UserController::class)
+        ->except(['create','edit']);
+});
+
 
 //route sensor
 Route::get('/sensor', [SensorController::class, 'index']);

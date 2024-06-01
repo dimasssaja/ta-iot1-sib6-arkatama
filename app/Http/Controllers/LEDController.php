@@ -26,6 +26,8 @@ class LEDController extends Controller
         return view('pages.led', $data);
     }
 
+
+
     public function show($id)
     {
         $data = leds::find($id);

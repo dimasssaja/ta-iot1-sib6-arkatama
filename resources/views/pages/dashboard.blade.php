@@ -1,8 +1,6 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <!DOCTYPE html>
-    <html lang="en">
 
     <head>
         <meta charset="UTF-8">
@@ -12,6 +10,8 @@
         <link rel="icon" href="images/logo.svg" type="image/icon type">
         <link href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <style>
             .chart-container {
@@ -51,34 +51,38 @@
                 </div>
                 <div class="box2">
                     <h2>Gas Sensor</h2>
-                    <div class="gauge">
-                        <div class="gauge__body">
-                            <div class="gauge__fill"></div>
-                            <div class="gauge__cover"></div>
+                    <div id="gasGauge" class="gauge-container">
+                        <div class="">
                         </div>
                     </div>
-                    <div class="indicator">
+                    {{-- <div class="indicator">
                         <h4>bahaya</h4>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="box3">
                     <h2>Rain Sensor</h2>
-                    <div class="gauge">
-                        <div class="gauge__body">
-                            <div class="gauge__cover">0 </div>
+                    <div id="rainGauge" class="gauge-container">
+                        <div class="">
                         </div>
                     </div>
-                    <div class="indicator">
+                    {{-- <div class="indicator">
                         <i class="fa-solid fa-cloud-rain">tidak terdeteksi</i>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 
             <div class="box4">
                 <h2>LED RGB</h2>
-                <p>Tipe Led: Led Merah</p>
-                <p>User: {{ auth()->user()->name}}</p>
+                <p>Tipe Led: Led RGB</p>
+                <p>User: {{ auth()->user()->name }}</p>
                 <p>Status: Aktif </p>
+            </div>
+
+            <div class="box5">
+                <h2>Notifikasi</h2>
+                <p>Message: Led Merah</p>
+                <p>User: {{ auth()->user()->name }}</p>
+                <p>Sent: Terkirim </p>
             </div>
 
             {{-- lihat semua data berarti routesnya route dari 1 layout yang berisi banyak datalog --}}
@@ -126,6 +130,42 @@
                             }
                         }
                     });
+                });
+                async function fetchSensorData() {
+                    const response = await fetch('{{ url('api/sensor') }}');
+                    const result = await response.json();
+                    return result.data;
+                }
+
+                fetchSensorData().then(sensorData => {
+                    if (sensorData.length > 0) {
+                        const latestData = sensorData[0]; // Mengambil data terbaru
+                        const gasLevel = latestData.gas_level;
+                        const rainDetected = latestData.rain_detected ? 1 :
+                            0; // Jika hujan terdeteksi, nilai 100, jika tidak nilai 0
+
+                        // Membuat gauge untuk Gas Sensor
+                        const gasGauge = new JustGage({
+                            id: "gasGauge",
+                            value: gasLevel,
+                            min: 0,
+                            max: 1000,
+                            title: "Gas Level",
+                            label: "ppm",
+                            levelColors: ["#00ff00", "#ff0000"]
+                        });
+
+                        // Membuat gauge untuk Rain Sensor
+                        const rainGauge = new JustGage({
+                            id: "rainGauge",
+                            value: rainDetected,
+                            min: 0,
+                            max: 1,
+                            title: "Rain Detection",
+                            label: rainDetected ? "Hujan" : "Tidak Hujan",
+                            levelColors: ["#00ff00", "#0000ff"]
+                        });
+                    }
                 });
             </script>
     </body>

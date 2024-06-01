@@ -100,9 +100,9 @@
             <div class="row1">
 
                 <div class="box">
-                    <p>LED R</p>
-                    <p>User:</p>
-                    <p>Status:</p>
+                    <p>{{ $led->nama_led }}</p>
+                    <p>User: {{ auth()->user()->name }} </p>
+                    <p>Status:{{ $led->status }}</p>
                     <img src="images/light.svg" alt="light" id="lightimg1">
                     <i class="fas fa-lightbulb-on light" id="lighton1"
                         style="width: 25px; height: 25px; color: yellow"></i>
@@ -111,10 +111,10 @@
                         <span class="slider round"></span>
                     </label>
                 </div>
-
+{{--
                 <div class="box">
-                    <p>LED G</p>
-                    <p>User:</p>
+                    <p> {{ $led->nama_led }}</p>
+                    <p>User: {{ auth()->user()->name }}</p>
                     <p>Status:</p>
                     <img src="images/light.svg" alt="light" id="lightimg2">
                     <i class="fas fa-lightbulb-on light" id="lighton2"
@@ -126,8 +126,8 @@
                 </div>
 
                 <div class="box">
-                    <p>LED B</p>
-                    <p>User:</p>
+                    <p>{{ $led->nama_led }}</p>
+                    <p>User: {{ auth()->user()->name }}</p>
                     <p>Status:</p>
                     <img src="images/light.svg" alt="light" id="lightimg3">
                     <i class="fas fa-lightbulb-on light" id="lighton3"
@@ -136,7 +136,7 @@
                         <input type="checkbox" id="lightswitch3" onchange="light3()">
                         <span class="slider round"></span>
                     </label>
-                </div>
+                </div> --}}
 
 
                 {{-- <div class="row2">
@@ -155,6 +155,7 @@
     </div>
 
     <script src="js/smart.js"></script>
+
 
 
     </body>

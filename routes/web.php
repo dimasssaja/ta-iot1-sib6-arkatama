@@ -60,6 +60,8 @@ Route::middleware('auth')->group(function () {
     Route::get('users',[UserController::class,'index'])->name('users.index');
     Route::get('leds',[LEDController::class,'index'])->name('leds.led');
     Route::get('sensors',[SensorController::class,'index'])->name('sensors.sensor');
+
+
 });
 
 
