@@ -24,7 +24,12 @@ Route::get('/user', function (Request $request) {
 Route::group(['as'=>'api.'], function(){
     Route::resource('users', UserController::class)
         ->except(['create','edit']);
+
+
+    Route::resource('leds', LEDController::class)
+        ->except(['create','edit']);
 });
+
 
 
 //route sensor

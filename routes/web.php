@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LEDController;
 use App\Http\Controllers\SensorController;
+use App\Http\Controllers\NotificationsController;
 
 Route::get('/', function () {
     return view('layouts.landing');
@@ -19,6 +20,9 @@ Route::get('/dashboard', function () {
         ];
     return view('pages.dashboard', $data);
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/latest-notification', [NotificationsController::class, 'latest'])->name('notifications.latest');
+Route::get('/latest-leds', [LEDController::class, 'latestleds'])->name('leds.latest');
 
 Route::get('/pengguna', function () {
     return view('pages.pengguna');
@@ -42,6 +46,10 @@ Route::get('/led', function () {
     return view('pages.led',$data);
 })->middleware(['auth', 'verified'])->name('led');;
 
+Route::put('leds/{id}', [LEDController::class, 'update'])->name('led.update');
+// Route::get('/dashboard', [LEDController::class, 'dashboard1'])->middleware(['auth', 'verified'])->name('dashboard1');
+// route ini nanti ganti karena tabrakan
+
 Route::get('/sensor', function () {
     $data['title'] = 'Dashboard';
     $data['breadcrumbs'][]=[
@@ -50,6 +58,7 @@ Route::get('/sensor', function () {
     ];
     return view('pages.sensor',$data);
 })->middleware(['auth', 'verified'])->name('sensor');;
+
 
 //route yg hanya diakses jika sudah login
 Route::middleware('auth')->group(function () {

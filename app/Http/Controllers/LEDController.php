@@ -53,12 +53,17 @@ class LEDController extends Controller
         return response()->json($led, 201);
     }
 
+    public function latestleds()
+    {
+        $latestledss = leds::latest()->first();
+        return response()->json($latestledss);
+    }
+
     public function update(Request $request, $id)
     {
 
         $data = $request->validate([
             'status' => 'required|boolean',
-            'nama_led' => 'required|string|max:255',
         ]);
 
 

@@ -37,6 +37,7 @@ class NotificationsController extends Controller
         return response()->json($notification, 201);
     }
 
+
     public function update(Request $request, $id)
     {
         $data = $request->validate([
@@ -59,6 +60,12 @@ class NotificationsController extends Controller
         } else {
             return response()->json(['message' => 'Data tidak ditemukan'], 404);
         }
+    }
+
+    public function latest()
+    {
+        $latestNotification = Notifications::latest()->first();
+        return response()->json($latestNotification);
     }
 
     // New function to check sensor data and create notification

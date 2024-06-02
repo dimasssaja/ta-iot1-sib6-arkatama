@@ -17,6 +17,7 @@
           <ul id="iq-sidebar-toggle" class="iq-menu">
              <li class="iq-menu-title"><i class="ri-separator"></i><span>Main</span></li>
              <li class="
+             {{-- dashboard1 itu diganti sama led yang dashboard --}}
              @if (request()->url() == route('dashboard'))
                  active
             @endif
