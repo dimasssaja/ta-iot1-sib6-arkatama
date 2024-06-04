@@ -36,7 +36,6 @@
                             <th>User ID</th>
                             <th>Created At</th>
                             <th>Updated At</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,7 +47,7 @@
                                 <td>{{ $led->user_id }}</td>
                                 <td>{{ $led->created_at->format('d M Y, H:i:s') }}</td>
                                 <td>{{ $led->updated_at->format('d M Y, H:i:s') }}</td>
-                                <td>
+                                {{-- <td>
                                     <div class="flex align-items-center list-user-action">
                                         <a data-toggle="tooltip" data-placement="top" title=""
                                             data-original-title="Edit" href="#"><i class="ri-pencil-line"></i></a>
@@ -56,7 +55,7 @@
                                             data-original-title="Delete" href="#"><i
                                                 class="ri-delete-bin-line"></i></a>
                                     </div>
-                                </td>
+                                </td> --}}
                             </tr>
                         @endforeach
                     </tbody>
@@ -77,16 +76,16 @@
                 <div class="modal-body">
                     <form id="addForm">
                         <div class="form-group">
+                            <label for="addNama">Nama LED</label>
+                            <input required type="text" class="form-control" id="addNama" name="nama_led">
+                        </div>
+                        <div class="form-group">
                             <label for="addStatus">Status</label>
-                            <input required type="text" class="form-control is-invalid" id="addStatus" name="name">
+                            <input type="checkbox" class="form-control" id="addStatus" name="status">
                         </div>
                         <div class="form-group">
-                            <label for="addEmail">status</label>
-                            <input required type="email" class="form-control" id="addEmail" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="addUser">userId</label>
-                            <input required type="password" class="form-control" id="addUser" name="password">
+                            <label for="addUser">User ID</label>
+                            <input required type="number" class="form-control" id="addUser" name="user_id">
                         </div>
                     </form>
                 </div>
@@ -110,7 +109,8 @@
                         <i class="fas fa-lightbulb-on light" id="lighton{{ $led->id }}"
                             style="width: 25px; height: 25px; color: yellow"></i>
                         <label class="switch">
-                            <input type="checkbox" id="lightswitch{{ $led->id }}" onchange="toggleLight({{ $led->id }})" {{ $led->status ? 'checked' : '' }}>
+                            <input type="checkbox" id="lightswitch{{ $led->id }}"
+                                onchange="toggleLight({{ $led->id }})" {{ $led->status ? 'checked' : '' }}>
                             <span class="slider round"></span>
                         </label>
                     </div>
@@ -131,19 +131,17 @@
                     status: status,
                     _token: $('meta[name="csrf-token"]').attr('content')
                 },
-                success: function (response) {
+                success: function(response) {
                     $('#status-table-' + id).text(status);
                     $('#status-box-' + id).text(status);
                 },
-                error: function (xhr) {
+                error: function(xhr) {
                     alert('Error updating status');
                 }
             });
         }
     </script>
-@endsection
-
-@push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         let userId = null;
         // toastr.success('dddds')
@@ -154,42 +152,26 @@
         })
 
         function createLed() {
-            const url = "{{ route('api.leds.store') }}";
             let data = {
-                status: $('#addStatus').val(),
                 nama_led: $('#addNama').val(),
+                status: $('#addStatus').is(':checked') ? 1 : 0,
                 user_id: $('#addUser').val(),
-            }
+                _token: $('meta[name="csrf-token"]').attr('content')
+            };
 
-            $.post(url, data)
-                .done((response) => {
-                    toastr.success(response.message, 'Sukses')
-
-                    setTimeout(() => {
-                        location.reload()
-                    }, 3000);
-                })
-                .fail((error) => {
-                    let response = error.responseJSON
-                    toastr.error(response.message, 'Error')
-
-                    if (response.errors) {
-
-                        for (const error in response.errors) {
-                            let input = $('#addForm input[name="${error}"]')
-                            input.addClass('is-invalid');
-
-                            let feedbackElement = '<div class="invalid-feedback">'
-                            feedbackElement += '<ul class="list-unstyled">'
-                            response.errors[error].forEach((message) => {
-                                feedbackElement += '<li>${message}</li>'
-                            })
-                            feedbackElement += '</ul>'
-                            feedbackElement += '</div>'
-
-                            input.after(feedbackElement)
-                        }
-                    }
-                })
+            $.ajax({
+                url: '/api/leds',
+                type: 'POST',
+                data: data,
+                success: function(response) {
+                    toastr.success('LED berhasil ditambahkan');
+                    $('#addModal').modal('hide');
+                    location.reload();
+                },
+                error: function(xhr) {
+                    toastr.error('Gagal menambahkan LED');
+                }
+            });
         }
-@endpush
+    </script>
+@endsection

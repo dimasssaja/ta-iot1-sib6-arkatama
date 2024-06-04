@@ -46,19 +46,14 @@
             @endif
              ">
                 <a href="{{route('leds.led')}}" class="iq-waves-effect"><i class="ri-user-line"></i><span>LED Control</span></a><li>
-                {{-- <ul id="user-info" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                   {{-- <li><a href="led">User Profile</a></li> --}}
-                   {{-- <li><a href="profile-edit.html">User Edit</a></li>
-                   <li><a href="add-user.html">User Add</a></li>
-                   <li><a href="user-list.html">User List</a></li> --}}
-                {{-- </ul> --}}
-             {{-- </li> --}}
-             <li class="
-             @if (request()->url() == route('users.index'))
-                 active
-            @endif
-             ">
-             <a href="{{route('users.index')}}" class="iq-waves-effect"><i class="ri-message-line"></i><span>Pengguna</span></a></li>
+                @if (auth()->user()->role == 'admin')
+                <li class="
+                @if (request()->url() == route('users.index'))
+                    active
+               @endif
+                ">
+                <a href="{{route('users.index')}}" class="iq-waves-effect"><i class="ri-message-line"></i><span>Pengguna</span></a></li>
+                @endif
 
              <li class="
              @if (request()->url() == route('logout'))

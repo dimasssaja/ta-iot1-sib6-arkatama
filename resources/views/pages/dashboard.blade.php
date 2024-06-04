@@ -78,7 +78,7 @@
             <p id="notificationSent">Loading...</p>
         </div>
 
-        <a href="{{ route('leds.led') }}" class="btn1 btn-primary">Lihat Semua Data</a>
+        {{-- <a href="{{ route('leds.led') }}" class="btn1 btn-primary">Lihat Semua Data</a> --}}
 
         <script src="js/smart.js"></script>
         <div class="chart-container">
