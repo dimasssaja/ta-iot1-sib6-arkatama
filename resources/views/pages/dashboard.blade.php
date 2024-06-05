@@ -43,7 +43,7 @@
                     </div>
 
                     <div class="Humidity">
-                        <strong id="humidity"></strong>
+                        <strong id="humidity">--</strong>
                         <p>Humidity</p>
                     </div>
                 </div>
@@ -63,12 +63,6 @@
             <p>User: {{ auth()->user()->name }}</p>
             <p id="ledNled">Loading...</p>
             <p id="ledStatus">Loading...</p>
-            {{-- @if($latestLed)
-                <p>Status: {{ $latestLed->status ? 'Aktif' : 'Tidak Aktif' }}</p>
-                <p>Tipe Led: {{ $latestLed->nama_led }}</p>
-            @else
-                <p>Status: Tidak Ada Data</p>
-            @endif --}}
         </div>
 
         <div class="box5">
@@ -77,8 +71,6 @@
             <p id="notificationUser">Loading...</p>
             <p id="notificationSent">Loading...</p>
         </div>
-
-        {{-- <a href="{{ route('leds.led') }}" class="btn1 btn-primary">Lihat Semua Data</a> --}}
 
         <script src="js/smart.js"></script>
         <div class="chart-container">
@@ -94,7 +86,8 @@
             fetchNotification().then(notification => {
                 document.getElementById('notificationMessage').innerText = `Message: ${notification.message}`;
                 document.getElementById('notificationUser').innerText = `User: ${notification.user_id}`;
-                document.getElementById('notificationSent').innerText = `Sent: ${notification.sent ? 'Terkirim' : 'Belum Terkirim'}`;
+                document.getElementById('notificationSent').innerText =
+                    `Sent: ${notification.sent ? 'Terkirim' : 'Belum Terkirim'}`;
             });
 
             async function fetchLED() {
@@ -105,24 +98,28 @@
 
             fetchLED().then(leds => {
                 document.getElementById('ledNled').innerText = `Tipe: ${leds.nama_led}`;
-                document.getElementById('ledStatus').innerText = `Status: ${leds.status? 'Aktif' : 'Tidak Aktif'}`;
+                document.getElementById('ledStatus').innerText = `Status: ${leds.status ? 'Aktif' : 'Tidak Aktif'}`;
             });
 
             async function fetchData() {
                 const response = await fetch('{{ url('api/sensor') }}');
                 const result = await response.json();
-                return result.data;
+                return result.data.slice(0, 5);
             }
 
+            let chart;
 
-
-            fetchData().then(sensorData => {
+            async function updateChart() {
+                const sensorData = await fetchData();
                 const labels = sensorData.map(sensor => new Date(sensor.created_at).toLocaleString());
-                const temperatureData = sensorData.map(sensor => sensor.temperature);
+                const temperatureData = sensorData.map(sensor => parseFloat(sensor.temperature).toFixed(1));
                 const humidityData = sensorData.map(sensor => sensor.humidity);
 
                 const ctx = document.getElementById('myChart').getContext('2d');
-                new Chart(ctx, {
+                if (chart) {
+                    chart.destroy();
+                }
+                chart = new Chart(ctx, {
                     type: 'line',
                     data: {
                         labels: labels,
@@ -147,43 +144,61 @@
                         }
                     }
                 });
-            });
-
-            async function fetchSensorData() {
-                const response = await fetch('{{ url('api/sensor') }}');
-                const result = await response.json();
-                return result.data;
             }
 
-            fetchSensorData().then(sensorData => {
+            // Memperbarui grafik setiap 5 detik
+            setInterval(updateChart, 5000);
+            // Memperbarui grafik saat halaman pertama kali dimuat
+            updateChart();
+
+            let gasGauge, rainGauge;
+
+            async function updateGauges() {
+                const response = await fetch('{{ url('api/sensor') }}');
+                const result = await response.json();
+                const sensorData = result.data;
+
                 if (sensorData.length > 0) {
                     const latestData = sensorData[0];
                     const gasLevel = latestData.gas_level;
                     const rainDetected = latestData.rain_detected ? 1 : 0;
-                    document.getElementById('temperature').innerText = latestData.temperature;
+                    document.getElementById('temperature').innerText = parseFloat(latestData.temperature).toFixed(1);
                     document.getElementById('humidity').innerText = latestData.humidity + '%';
 
-                    const gasGauge = new JustGage({
-                        id: "gasGauge",
-                        value: gasLevel,
-                        min: 0,
-                        max: 1000,
-                        title: "Gas Level",
-                        label: "ppm",
-                        levelColors: ["#00ff00", "#ff0000"]
-                    });
+                    if (gasGauge) {
+                        gasGauge.refresh(gasLevel);
+                    } else {
+                        gasGauge = new JustGage({
+                            id: "gasGauge",
+                            value: gasLevel,
+                            min: 0,
+                            max: 1000,
+                            title: "Gas Level",
+                            label: "ppm",
+                            levelColors: ["#00ff00", "#ff0000"]
+                        });
+                    }
 
-                    const rainGauge = new JustGage({
-                        id: "rainGauge",
-                        value: rainDetected,
-                        min: 0,
-                        max: 1,
-                        title: "Rain Detection",
-                        label: rainDetected ? "Hujan" : "Tidak Hujan",
-                        levelColors: ["#00ff00", "#0000ff"]
-                    });
+                    if (rainGauge) {
+                        rainGauge.refresh(rainDetected);
+                    } else {
+                        rainGauge = new JustGage({
+                            id: "rainGauge",
+                            value: rainDetected,
+                            min: 0,
+                            max: 1,
+                            title: "Rain Detection",
+                            label: rainDetected ? "Hujan" : "Tidak Hujan",
+                            levelColors: ["#00ff00", "#0000ff"]
+                        });
+                    }
                 }
-            });
+            }
+
+            // Memperbarui gauge dan data box1 setiap 5 detik
+            setInterval(updateGauges, 5000);
+            // Memperbarui gauge dan data box1 saat halaman pertama kali dimuat
+            updateGauges();
         </script>
 </body>
 

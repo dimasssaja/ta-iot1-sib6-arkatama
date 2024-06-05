@@ -57,7 +57,9 @@ Route::get('/sensor', function () {
         'url'   => route('sensor')
     ];
     return view('pages.sensor',$data);
-})->middleware(['auth', 'verified'])->name('sensor');;
+})->middleware(['auth', 'verified'])->name('sensor');
+
+
 
 
 //route yg hanya diakses jika sudah login
