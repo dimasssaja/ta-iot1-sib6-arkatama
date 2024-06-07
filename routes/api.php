@@ -29,6 +29,8 @@ Route::group(['as'=>'api.'], function(){
 Route::resource('leds', LEDController::class)
 ->except(['create','edit']);
 
+Route::post('/sensors', [SensorController::class, 'store']);
+
 //route sensor
 Route::get('/sensor', [SensorController::class, 'index']);
 Route::get('/sensor/{id}', [SensorController::class, 'show']);
