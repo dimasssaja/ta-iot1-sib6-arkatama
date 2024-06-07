@@ -83,7 +83,7 @@ class SensorController extends Controller
         $sensorData = Sensor::create($validatedData);
 
         if ($validatedData['gas_level'] > 300) {
-            $message = "Gas Leak Detected!!!\nValue : {$validatedData['gas_level']} ppm\nDatetime : {$sensorData->created_at}";
+            $message = "Gas Bocor Terdeteksi!!!\nValue : {$validatedData['gas_level']} ppm\nDatetime : {$sensorData->created_at}";
             $this->sendWhatsAppNotification($message);
         }
 

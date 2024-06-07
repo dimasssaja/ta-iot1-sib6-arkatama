@@ -54,7 +54,7 @@
         <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Evolo</a> -->
 
         <!-- Image Logo -->
-        <a class="navbar-brand logo-image" href="index.html"><img src="images/home22.png" alt="alternative">Evolo</a>
+        <a class="navbar-brand logo-image" href="index.html"><img src="images/home22.png" alt="alternative"></a>
         <!-- Mobile Menu Toggle Button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -219,33 +219,30 @@
 
                     <!-- Card -->
                     <div class="card">
-                        <img class="card-image" src="images/dht11.png" alt="alternative">
+                        <img class="card-image" src="images/dk1.png" alt="alternative">
                         <div class="card-body">
                             <h4 class="card-title">Dokumentasi 1</h4>
-                            <p>Our team of enthusiastic marketers will analyse and evaluate how your company stacks
-                                against the closest competitors</p>
+                            <p>Pesan whatsapp ketika gas melebihi 300ppm</p>
                         </div>
                     </div>
                     <!-- end of card -->
 
                     <!-- Card -->
                     <div class="card">
-                        <img class="card-image" src="images/dht11.png" alt="alternative">
+                        <img class="card-image" src="images/dk2.png" alt="alternative">
                         <div class="card-body">
                             <h4 class="card-title">Dokumentasi 2</h4>
-                            <p>Once the market analysis process is completed our staff will search for opportunities
-                                that are in reach</p>
+                            <p>Dashboard yang berisi grafik dan menggambarkan data dari sensor</p>
                         </div>
                     </div>
                     <!-- end of card -->
 
                     <!-- Card -->
                     <div class="card">
-                        <img class="card-image" src="images/dht11.png" alt="alternative">
+                        <img class="card-image" src="images/rangkaian2.jpg" alt="alternative">
                         <div class="card-body">
                             <h4 class="card-title">Dokumentasi 3</h4>
-                            <p>With all the information in place you will be presented with an action plan that your
-                                company needs to follow</p>
+                            <p>Rangkain projek dan tampilan OLED yang dikirim dari Sensor</p>
                         </div>
                     </div>
                     <!-- end of card -->
@@ -273,18 +270,18 @@
                             <img class="img-fluid" src="images/team-member-2.svg" alt="alternative">
                         </div> <!-- end of image wrapper -->
                         <p class="p-large"><strong>Dimas Abi Mesti</strong></p>
-                        <p class="job-title">SIB 6 Arkatama student</p>
+                        <p class="job-title">SIB 6 Arkatama Student</p>
                         <span class="social-icons">
                             <span class="fa-stack">
-                                <a href="#your-link">
+                                <a href="https://www.linkedin.com/in/dimas-abi-mesti-0158352a1/">
                                     <i class="fas fa-circle fa-stack-2x facebook"></i>
-                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                    <i class="fab fa-linkedin-in fa-stack-1x"></i>
                                 </a>
                             </span>
                             <span class="fa-stack">
-                                <a href="#your-link">
+                                <a href="https://github.com/dimasssaja">
                                     <i class="fas fa-circle fa-stack-2x twitter"></i>
-                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                    <i class="fab fa-github fa-stack-1x"></i>
                                 </a>
                             </span>
                         </span> <!-- end of social-icons -->
@@ -302,7 +299,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="p-small">Copyright © Dimas Abi Mesti  <a>
+                    <p class="p-small">Dibuat oleh Dimas Abi Mesti 2024 <a>
                 </div> <!-- end of col -->
             </div> <!-- enf of row -->
         </div> <!-- end of container -->

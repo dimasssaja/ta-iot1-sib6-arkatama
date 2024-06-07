@@ -41,22 +41,22 @@
                 </div>
                 <div class="col-sm-6 text-center">
                     <div class="sign-in-detail text-white"
-                        style="background: url(images/bg-03.jpg) no-repeat 0 0; background-size: cover;">
-                        <a class="sign-in-logo mb-5" href="#"><img src="images/white-logo.png" class="img-fluid"
+                        style="background: url(images/bg5.jpg) no-repeat 0 0; background-size: auto;">
+                        <a class="sign-in-logo mb-5" href="#"><img src="images/home221.png" class="img-fluid"
                                 alt="logo"></a>
                         <div class="owl-carousel" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true"
                             data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1"
                             data-items-mobile-sm="1" data-margin="0">
                             <div class="item">
                                 <img src="images/h11.png" class="img-fluid mb-4" alt="logo">
-                                <h4 class="mb-1 text-white">Manage your orders</h4>
-                                <p>It is a long established fact that a reader will be distracted by the readable content.
+                                <h4 class="mb-1 text-white">Control Your Home</h4>
+                                <p>
                                 </p>
                             </div>
                             <div class="item">
-                                <img src="images/houser.png" class="img-fluid mb-4" alt="logo">
-                                <h4 class="mb-1 text-white">Manage your orders</h4>
-                                <p>It is a long established fact that a reader will be distracted by the readable content.
+                                <img src="images/dk2.png" class="img-fluid mb-4" alt="logo">
+                                <h4 class="mb-1 text-white">Control Your Home</h4>
+                                <p>
                                 </p>
                             </div>
                         </div>

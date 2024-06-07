@@ -823,8 +823,8 @@ input[type='checkbox'] {
 }
 
 .cards-1 .card-image {
-	width: 6rem;
-	height: 6rem;
+	width: 18rem;
+	height: 10rem;
 	margin-right: auto;
 	margin-bottom: 2rem;
 	margin-left: auto;
@@ -1854,9 +1854,12 @@ a:hover.back-to-top {
 
 	/* Header */
 	.header {
-		background: url('../images/header-background.jpg') center center no-repeat;
+		background: url('../images/bg2.jpg') center center no-repeat;
 		background-size: cover;
 	}
+
+
+
 
 	.header .header-content {
 		padding-top: 11.5rem;
