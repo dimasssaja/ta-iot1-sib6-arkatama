@@ -120,6 +120,9 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/4.2.7/mqtt.min.js"></script>
+
     <script>
         function toggleLight(id) {
             const isActive = $('#lightswitch' + id).is(':checked');
@@ -134,13 +137,72 @@
                 success: function(response) {
                     $('#status-table-' + id).text(status);
                     $('#status-box-' + id).text(status);
+                    // Tambahkan fungsi untuk publish status ke MQTT setelah switch diubah
+                    publishStatusToMQTT(status);
                 },
                 error: function(xhr) {
                     alert('Error updating status');
                 }
             });
         }
+
+        function publishStatusToMQTT(status) {
+            const protocol = 'wss'
+            const host = 'efeeee8f.ala.us-east-1.emqxsl.com'
+            const port = '8084'
+            const url = `${protocol}://${host}:${port}/mqtt`
+
+            const username = 'dimas'
+            const password = 'dimas'
+            const clientId =  `mqtt_${Math.random().toString(16).slice(3)}`;
+
+            const options = {
+                clientId,
+                clean: true,
+                connectTimeout: 4000,
+                username,
+                password,
+                reconnectPeriod: 1000,
+                ca: `-----BEGIN CERTIFICATE-----
+MIIDrzCCApegAwIBAgIQCDvgVpBCRrGhdWrJWZHHSjANBgkqhkiG9w0BAQUFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0wNjExMTAwMDAwMDBaFw0zMTExMTAwMDAwMDBaMGExCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5j
+b20xIDAeBgNVBAMTF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMIIBIjANBgkqhkiG
+9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4jvhEXLeqKTTo1eqUKKPC3eQyaKl7hLOllsB
+CSDMAZOnTjC3U/dDxGkAV53ijSLdhwZAAIEJzs4bg7/fzTtxRuLWZscFs3YnFo97
+nh6Vfe63SKMI2tavegw5BmV/Sl0fvBf4q77uKNd0f3p4mVmFaG5cIzJLv07A6Fpt
+43C/dxC//AH2hdmoRBBYMql1GNXRor5H4idq9Joz+EkIYIvUX7Q6hL+hqkpMfT7P
+T19sdl6gSzeRntwi5m3OFBqOasv+zbMUZBfHWymeMr/y7vrTC0LUq7dBMtoM1O/4
+gdW7jVg/tRvoSSiicNoxBN33shbyTApOB6jtSj1etX+jkMOvJwIDAQABo2MwYTAO
+BgNVHQ8BAf8EBAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUA95QNVbR
+TLtm8KPiGxvDl7I90VUwHwYDVR0jBBgwFoAUA95QNVbRTLtm8KPiGxvDl7I90VUw
+DQYJKoZIhvcNAQEFBQADggEBAMucN6pIExIK+t1EnE9SsPTfrgT1eXkIoyQY/Esr
+hMAtudXH/vTBH1jLuG2cenTnmCmrEbXjcKChzUyImZOMkXDiqw8cvpOp/2PV5Adg
+06O/nVsJ8dWO41P0jmP6P6fbtGbfYmbW0W5BjfIttep3Sp+dWOIrWcBAI+0tKIJF
+PnlUkiaY4IBIqDfv8NZ5YBberOgOzW6sRBc4L0na4UU+Krk2U886UAb3LujEV0ls
+YSEY1QSteDwsOoBrp+uvFRTp2InBuThs4pFsiv9kuXclVzDAGySj4dzp30d8tbQk
+CAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=
+-----END CERTIFICATE-----`,
+            }
+            const client = mqtt.connect(url, options)
+            const topic = "ledsred"; // Sesuaikan dengan topik yang digunakan di ESP32
+            const message = JSON.stringify({
+                status: status
+            });
+
+            // Kirim pesan ke server MQTT
+            client.publish(topic, message, function(err) {
+                if (!err) {
+                    console.log('Pesan berhasil dipublikasikan');
+                } else {
+                    console.error('Error saat mempublikasikan pesan:', err);
+                }
+            });
+        }
     </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
         let userId = null;
