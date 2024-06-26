@@ -50,8 +50,6 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-        <!-- Text Logo - Use this if you don't have a graphic logo -->
-        <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Evolo</a> -->
 
         <!-- Image Logo -->
         <a class="navbar-brand logo-image" href="index.html"><img src="images/home22.png" alt="alternative"></a>
@@ -89,20 +87,6 @@
                     </li>
                 @endif
 
-
-
-                {{-- <!-- Dropdown Menu -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle page-scroll" href="#about" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="terms-conditions.html"><span class="item-text">Terms Conditions</span></a>
-                        <div class="dropdown-items-divide-hr"></div>
-                        <a class="dropdown-item" href="privacy-policy.html"><span class="item-text">Privacy Policy</span></a>
-                    </div>
-                </li>
-                <!-- end of dropdown menu --> --}}
-
-
             </ul>
             <span class="nav-item social-icons">
                 <span class="fa-stack">
@@ -133,11 +117,12 @@
                             <h1><span class="turquoise">IoT House - Home Controlling</span> </h1>
                             <p class="p-large">Selamat datang di sistem pemantauan lingkungan berbasis IoT kami, solusi
                                 untuk mengawasi kondisi lingkungan rumah dengan sebuah website</p>
-                                @if (Auth::check())
-                                    <a class="btn-solid-lg page-scroll" href="{{ route('dashboard') }}">Control Your Home</a>
-                                @else
-                                    <a class="btn-solid-lg page-scroll" href="{{ route('login') }}">Login</a>
-                                @endif
+                            @if (Auth::check())
+                                <a class="btn-solid-lg page-scroll" href="{{ route('dashboard') }}">Control Your
+                                    Home</a>
+                            @else
+                                <a class="btn-solid-lg page-scroll" href="{{ route('login') }}">Login</a>
+                            @endif
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->
                     <div class="col-lg-6">
@@ -290,7 +275,7 @@
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
         </div>
-        </div> <!-- end of container -->
+    </div> <!-- end of container -->
     </div> <!-- end of basic-4 -->
     <!-- end of about -->
 

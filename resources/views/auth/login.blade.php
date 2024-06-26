@@ -14,6 +14,7 @@
                         <form class="mt-4" action="{{ route('login') }}" method="POST">
                             @csrf
                             {{-- pengaman untuk laravel kalau tidak dipakai maka page expired --}}
+                            {{-- form untuk login --}}
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input name="email" type="email" class="form-control mb-0" id="exampleInputEmail1"
@@ -39,6 +40,8 @@
                         </form>
                     </div>
                 </div>
+
+                {{-- background decoration --}}
                 <div class="col-sm-6 text-center">
                     <div class="sign-in-detail text-white"
                         style="background: url(images/bg5.jpg) no-repeat 0 0; background-size: auto;">

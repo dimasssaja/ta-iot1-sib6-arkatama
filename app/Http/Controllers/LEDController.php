@@ -8,6 +8,7 @@ use App\Models\leds;
 
 class LEDController extends Controller
 {
+    // read
     public function index()
     {
         $data['title'] = 'Pengguna';
@@ -27,7 +28,7 @@ class LEDController extends Controller
     }
 
 
-
+    // read by id
     public function show($id)
     {
         $data = leds::find($id);
@@ -38,6 +39,7 @@ class LEDController extends Controller
         }
     }
 
+    // create
     public function store(Request $request)
     {
 
@@ -53,12 +55,14 @@ class LEDController extends Controller
         return response()->json($led, 201);
     }
 
+    // data led terbaru
     public function latestleds()
     {
         $latestledss = leds::latest()->first();
         return response()->json($latestledss);
     }
 
+    // update
     public function update(Request $request, $id)
     {
 
@@ -73,6 +77,7 @@ class LEDController extends Controller
         return response()->json($led);
     }
 
+    // delete
     public function destroy($id)
     {
 

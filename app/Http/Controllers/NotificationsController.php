@@ -8,12 +8,14 @@ use App\Models\Notifications;
 
 class NotificationsController extends Controller
 {
+    // read
     public function index()
     {
         $data = Notifications::all();
         return response()->json($data);
     }
 
+    // read by id
     public function show($id)
     {
         $data = Notifications::find($id);
@@ -24,6 +26,7 @@ class NotificationsController extends Controller
         }
     }
 
+    // create
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -37,7 +40,7 @@ class NotificationsController extends Controller
         return response()->json($notification, 201);
     }
 
-
+    // update
     public function update(Request $request, $id)
     {
         $data = $request->validate([
@@ -51,6 +54,7 @@ class NotificationsController extends Controller
         return response()->json($notification);
     }
 
+    // delete
     public function destroy($id)
     {
         $notification = Notifications::find($id);
@@ -62,45 +66,10 @@ class NotificationsController extends Controller
         }
     }
 
+    // menampilkan notifikasi terbaru
     public function latest()
     {
         $latestNotification = Notifications::latest()->first();
         return response()->json($latestNotification);
     }
-
-    // New function to check sensor data and create notification
-    // public function checkSensors()
-    // {
-    //     $sensors = Sensor::all();
-    //     foreach ($sensors as $sensor) {
-    //         if ($sensor->gas_level >= 100) { // Threshold for gas level
-    //             $message = "Warning! High gas level detected: " . $sensor->gas_level;
-
-    //             $notification = Notification::create([
-    //                 'message' => $message,
-    //                 'sent' => false
-    //             ]);
-
-    //             // Optionally, call a function to send WhatsApp notification here
-    //             // $this->sendWhatsAppNotification($message);
-    //         }
-    //     }
-
-    //     return response()->json(['status' => 'Sensor check completed']);
-    // }
-
-    // // Optionally, add a function to send WhatsApp notifications
-    // private function sendWhatsAppNotification($message)
-    // {
-    //     // Here you can use a service like Twilio or any other WhatsApp API
-    //     // Example using Twilio:
-    //     // $client = new \Twilio\Rest\Client(env('TWILIO_SID'), env('TWILIO_AUTH_TOKEN'));
-    //     // $client->messages->create(
-    //     //     'whatsapp:+1234567890', // to
-    //     //     [
-    //     //         'from' => 'whatsapp:+1234567890', // from
-    //     //         'body' => $message
-    //     //     ]
-    //     // );
-    // }
 }

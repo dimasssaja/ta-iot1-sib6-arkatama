@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    // read
     function index(){
         $data['title'] = 'Pengguna';
         $data['breadcrumbs'][]=[
@@ -24,6 +25,7 @@ class UserController extends Controller
         return view('pages.user.index', $data);
     }
 
+    // read by id
     public function show($id)
     {
         $data = User::find($id);
@@ -34,6 +36,8 @@ class UserController extends Controller
         }
     }
 
+
+    // delete by id
     public function destroy($id)
     {
         $data = User::find($id);

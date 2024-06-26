@@ -121,23 +121,4 @@ class SensorController extends Controller
         }
     }
 
-    // public function getData(){
-    //     $data=Sensor::all();
-    //     return response()->json([
-    //         "message" => "data temperature berhasil diambil",
-    //         "data"    => $data
-    //     ],200);
-    // }
-
-    // function deleteData(Request $request){
-    //     $value=$request->temperature;
-    //     $temperature = Sensor::findOrFail($request->id);
-    //     $temperature->delete();
-
-    //     return response()->json([
-    //         "message" => "Data temperature berhasil dihapus",
-    //         "data"    => $temperature
-    //     ], 200);
-    // }
-
 }

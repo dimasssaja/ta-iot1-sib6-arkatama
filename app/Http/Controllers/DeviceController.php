@@ -9,12 +9,14 @@ use App\Models\devices;
 
 class DeviceController extends Controller
 {
+    // read
     public function index()
     {
         $data = devices::all();
         return response()->json($data);
     }
 
+    // read by id
     public function show($id)
     {
         $data = devices::find($id);
@@ -25,6 +27,7 @@ class DeviceController extends Controller
         }
     }
 
+    // create
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -38,6 +41,7 @@ class DeviceController extends Controller
         return response()->json($device, 201);
     }
 
+    // update
     public function update(Request $request, $id)
     {
         $device = devices::find($id);
@@ -56,6 +60,7 @@ class DeviceController extends Controller
         }
     }
 
+    // delete
     public function destroy($id)
     {
         $device = devices::find($id);
@@ -66,10 +71,4 @@ class DeviceController extends Controller
             return response()->json(['message' => 'data device tidak ditemukan'], 404);
         }
     }
-    // public function index()
-    // {
-    //     // Mengambil semua data sensor
-    //     $devices = devices::all();
-    //     return response()->json($devices);
-    // }
 }
